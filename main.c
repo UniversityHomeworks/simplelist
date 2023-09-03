@@ -75,7 +75,30 @@ void delete (struct ListNode **head) {
 }
 
 void search(struct ListNode **head) {
+    struct ListNode *current = NULL;
+    struct ListNode *next = NULL;
 
+    int value = 0;
+
+    printf("Ingresa el valor a buscar: ");
+    scanf("%d", &value);
+
+    current = *head;
+    next = current->next;
+
+    while (current != NULL) {
+        if (current->value == value) {
+            printf("El valor %d existe en la lista\n", value);
+            break;
+        }
+
+        current = next;
+        next = current->next;
+    }
+
+    if (current == NULL) {
+        printf("El valor %d no existe en la lista\n", value);
+    }
 }
 
 void print_list(struct ListNode *head) {
