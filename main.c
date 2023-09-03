@@ -22,7 +22,7 @@ void add(struct ListNode **head) {
     int value = 0;
 
     printf("Ingresa el valor a insertar: ");
-    scanf("%d", &value);
+    scanf(" %d", &value);
 
     new_node = CREATE_NODE;
     new_node->value = value;
@@ -51,7 +51,7 @@ void delete (struct ListNode **head) {
     int value = 0;
 
     printf("Ingresa el valor a borrar: ");
-    scanf("%d", &value);
+    scanf(" %d", &value);
 
     current = *head;
     next = current->next;
@@ -81,7 +81,7 @@ void search(struct ListNode **head) {
     int value = 0;
 
     printf("Ingresa el valor a buscar: ");
-    scanf("%d", &value);
+    scanf(" %d", &value);
 
     current = *head;
     next = current->next;
@@ -102,51 +102,47 @@ void search(struct ListNode **head) {
 }
 
 void print_list(struct ListNode *head) {
-    struct ListNode *current = NULL;
-    struct ListNode *next = NULL;
+    if (head == NULL) {
+        printf("La lista esta vacia\n");
+        return;
+    }
 
-    current = head;
-    next = current->next;
-
-    while (current != NULL) {
-        printf("%d\n", current->value);
-        current = next;
-        next = current->next;
+    while (head != NULL) {
+        printf("Numero: %d\n", head->value);
+        head = head->next;
     }
 }
 
 int main(void) {
     struct ListNode *head = NULL;
-    struct ListNode *current = NULL;
-    struct ListNode *next = NULL;
 
     int option = 0;
 
     while (option != 5) {
-        printf("1. Adicionar dato\n");
-        printf("2. Borrar dato\n");
-        printf("3. Buscar dato\n");
-        printf("4. Imprimir lista\n");
-        printf("5. Salir\n");
-        printf("Ingresa una opcion: ");
-        scanf("%d", &option);
+        printf("\t1. Adicionar dato\n");
+        printf("\t2. Borrar dato\n");
+        printf("\t3. Buscar dato\n");
+        printf("\t4. Imprimir lista\n");
+        printf("\t5. Salir\n");
+        printf("Ingresa una opcion:");
+        scanf(" %d", &option);
 
         switch (option) {
             case 1:
                 add(&head);
-                break;
+                continue;
             case 2:
                 delete(&head);
-                break;
+                continue;
             case 3:
                 search(&head);
-                break;
+                continue;
             case 4:
                 print_list(head);
-                break;
+                continue;
             case 5:
                 printf("Adios!\n");
-                break;
+                continue;
             default:
                 printf("Opcion invalida\n");
                 break;
