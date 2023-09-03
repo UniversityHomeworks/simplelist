@@ -118,6 +118,8 @@ int main(void) {
 
     int option = 0;
 
+    printf("Lista enlazada simple\n");
+
     while (option != 5) {
         printf("\t1. Adicionar dato\n");
         printf("\t2. Borrar dato\n");
